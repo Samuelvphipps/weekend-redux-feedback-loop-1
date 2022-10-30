@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Button from "@mui/material/Button";
 
 function ReviewPage({submitRatings}) {
 
@@ -23,9 +24,13 @@ function ReviewPage({submitRatings}) {
             <h2>Understanding: {understandingRating}</h2>
             <h2>Support: {supportedRating}</h2>
             <h2>Comments: {commentsRating}</h2>
-            <button className='submitBtn' onClick={(evt)=>handleSubmit(evt)} type='submit'>
+
+            <Button 
+                type="submit" 
+                variant="contained"
+                onClick={(evt)=>handleSubmit(evt)}>
                 Submit
-            </button>
+            </Button>
         </>
     );
 }

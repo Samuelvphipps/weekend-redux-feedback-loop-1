@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import {useDispatch} from 'react-redux';
+import TextField from '@mui/material/TextField';
+import Button from "@mui/material/Button";
 
 function CommentsForm() {
 
@@ -38,16 +40,28 @@ function CommentsForm() {
         <>
         <form className='comments' onSubmit={(evt)=>onNext(evt)}>
             <h1>Any comments you want to leave?</h1>
-            <label htmlFor="commentsInput">Comments</label>
+            {/* <label htmlFor="commentsInput">Comments</label>
             <input onChange={(evt)=>handleInput(evt)} id="commentsInput" 
                 type="text" value={commentsRating}
                 required
-            />           
-            <button className='nextBtn' type="submit">Next</button>
+            />            */}
+            <TextField
+            required
+            id="commentsInput"
+            label="Comments?"
+            variant="standard"
+            type="text"
+            onChange={(evt)=>handleInput(evt)}
+            value={commentsRating}
+            />     
+            <Button type="submit" variant="contained">
+                Next
+            </Button>
         </form>
-        <button className='backBtn' type="button" onClick={(evt)=>goBack(evt)}>
-            Back
-        </button>
+        <Button type="button" onClick={(evt)=>goBack(evt)} 
+                variant="outlined" color="secondary">
+                Back
+        </Button>
         </>
     );
 }
