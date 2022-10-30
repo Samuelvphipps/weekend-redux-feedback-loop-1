@@ -8,6 +8,7 @@ import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportedForm from '../SupportedForm/SupportedForm';
 import CommentsForm from '../CommentsForm/ComentsForm';
 import ReviewPage from '../ReviewPage/ReviewPage';
+import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
     </div>
-    <Route exact path = "/feeling">
+    <Route exact path = "/">
       <FeelingForm />
     </Route>
 
@@ -40,6 +41,10 @@ function App() {
 
     <Route exact path = "/review">
       <ReviewPage />
+    </Route>
+
+    <Route exact path = "/confirmation">
+      <ConfirmationPage />
     </Route>
 
     </Router>

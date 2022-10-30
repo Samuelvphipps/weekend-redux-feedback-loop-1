@@ -35,7 +35,7 @@ function ReviewPage() {
         .catch((error) => {
             console.error('error posting feedback', error);
         });
-        //history.push('/feedback');
+        history.push('/confirmation');
     }
 
     return (
