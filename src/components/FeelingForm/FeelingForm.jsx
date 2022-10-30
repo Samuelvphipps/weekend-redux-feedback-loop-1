@@ -18,7 +18,7 @@ function FeelingForm() {
     const onNext = (evt) => {
         evt.preventDefault();
         if (feelingRating == ''){
-            alert('Please enter a number between 0 and 5!');
+            alert('Please enter a number between 1 and 5!');
             return;
         }
         dispatch({
@@ -29,6 +29,7 @@ function FeelingForm() {
     }
 
     return (
+        <>
         <form className='feeling' onSubmit={(evt)=>onNext(evt)}>
             <h1>How are you feeling today?</h1>
             <label htmlFor="feelingInput">Feeling?</label>
@@ -38,7 +39,8 @@ function FeelingForm() {
             />           
             <button className='nextBtn' type="submit">Next</button>
         </form>
-    )
+        </>
+    );
 }
 
 export default FeelingForm;

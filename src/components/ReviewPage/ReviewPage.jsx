@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import axios from 'axios';
 
-function ReviewPage() {
+function ReviewPage({submitRatings}) {
 
     const history = useHistory();
 
@@ -12,29 +11,8 @@ function ReviewPage() {
     const supportedRating = useSelector((store) => store.supportedRating);
     const commentsRating = useSelector((store) => store.commentsRating);
 
-    const onSubmit = () => {
-        //evt.preventDefault();
-
-        // create object to send to database
-        const ratings = {
-            feelingRating: feelingRating,
-            understandingRating: understandingRating,
-            supportedRating: supportedRating,
-            commentsRating: commentsRating
-        }
-
-        // POST feedback endpoint
-        axios({
-            method: 'POST',
-            url: '/',
-            data: ratings
-        })
-        .then((response) => {
-            console.log('feedback recorded');
-        })
-        .catch((error) => {
-            console.error('error posting feedback', error);
-        });
+    const handleSubmit = () => {
+        submitRatings();
         history.push('/confirmation');
     }
 
@@ -45,7 +23,7 @@ function ReviewPage() {
             <h2>Understanding: {understandingRating}</h2>
             <h2>Support: {supportedRating}</h2>
             <h2>Comments: {commentsRating}</h2>
-            <button className='submitBtn' onClick={(evt)=>onSubmit(evt)} type='submit'>
+            <button className='submitBtn' onClick={(evt)=>handleSubmit(evt)} type='submit'>
                 Submit
             </button>
         </>

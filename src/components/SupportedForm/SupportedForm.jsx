@@ -18,7 +18,7 @@ function SupportedForm() {
     const onNext = (evt) => {
         evt.preventDefault();
         if (supportedRating == ''){
-            alert('Please enter a number between 0 and 5!');
+            alert('Please enter a number between 1 and 5!');
             return;
         }
         dispatch({
@@ -28,7 +28,14 @@ function SupportedForm() {
         history.push('/comments');
     }
 
+    // go to previous page
+    const goBack = (evt) => {
+        evt.preventDefault();
+        history.push('/understanding');
+    }
+
     return (
+        <>
         <form className='supported' onSubmit={(evt)=>onNext(evt)}>
             <h1>How well are you being supported?</h1>
             <label htmlFor="supportedInput">Supported?</label>
@@ -38,7 +45,11 @@ function SupportedForm() {
             />           
             <button className='nextBtn' type="submit">Next</button>
         </form>
-    )
+        <button className='backBtn' type="button" onClick={(evt)=>goBack(evt)}>
+            Back
+        </button>
+        </>
+    );
 }
 
 export default SupportedForm;
