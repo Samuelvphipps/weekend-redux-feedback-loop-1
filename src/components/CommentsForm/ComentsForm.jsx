@@ -25,7 +25,7 @@ function CommentsForm() {
             type: 'SET_COMMENTS',
             payload: commentsRating
         })
-        //history.push('/review');
+        history.push('/review');
     }
 
     return (
@@ -36,7 +36,7 @@ function CommentsForm() {
                 type="text" value={commentsRating}
                 required
             />           
-            <button type="submit">Next</button>
+            <button className='nextBtn' type="submit">Next</button>
         </form>
     )
 }

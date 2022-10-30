@@ -36,7 +36,7 @@ function FeelingForm() {
                 type="number" min="0" max="5" value={feelingRating}
                 required
             />           
-            <button type="submit">Next</button>
+            <button className='nextBtn' type="submit">Next</button>
         </form>
     )
 }

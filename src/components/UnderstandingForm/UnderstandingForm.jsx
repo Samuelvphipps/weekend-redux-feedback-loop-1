@@ -39,7 +39,7 @@ function UnderstandingForm() {
                 type="number" min="0" max="5" value={understandingRating}
                 required
             />           
-            <button type="submit">Next</button>
+            <button className='nextBtn' type="submit">Next</button>
         </form>
     )
 }

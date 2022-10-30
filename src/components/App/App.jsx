@@ -7,6 +7,7 @@ import FeelingForm from '../FeelingForm/FeelingForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportedForm from '../SupportedForm/SupportedForm';
 import CommentsForm from '../CommentsForm/ComentsForm';
+import ReviewPage from '../ReviewPage/ReviewPage';
 
 
 function App() {
@@ -35,6 +36,10 @@ function App() {
 
     <Route exact path = "/comments">
       <CommentsForm />
+    </Route>
+
+    <Route exact path = "/review">
+      <ReviewPage />
     </Route>
 
     </Router>

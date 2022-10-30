@@ -36,7 +36,7 @@ function SupportedForm() {
                 type="number" min="0" max="5" value={supportedRating}
                 required
             />           
-            <button type="submit">Next</button>
+            <button className='nextBtn' type="submit">Next</button>
         </form>
     )
 }
