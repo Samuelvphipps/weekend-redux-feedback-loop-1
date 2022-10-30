@@ -2,7 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import {Route, HashRouter as Router, Link} from 'react-router-dom';
 import './App.css';
+import { useSelector } from "react-redux";
 import { useEffect } from 'react';
+import { useHistory } from "react-router-dom";
+
 import FeelingForm from '../FeelingForm/FeelingForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportedForm from '../SupportedForm/SupportedForm';
@@ -10,9 +13,36 @@ import CommentsForm from '../CommentsForm/ComentsForm';
 import ReviewPage from '../ReviewPage/ReviewPage';
 import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 
-
 function App() {
 
+  const feelingRating = useSelector((store) => store.feelingRating); 
+  const understandingRating = useSelector((store) => store.understandingRating);
+  const supportedRating = useSelector((store) => store.supportedRating);
+  const commentsRating = useSelector((store) => store.commentsRating);
+
+  const submitRatings = () => {
+    //evt.preventDefault();
+    // create object to send to database
+    const ratings = {
+        feelingRating: feelingRating,
+        understandingRating: understandingRating,
+        supportedRating: supportedRating,
+        commentsRating: commentsRating
+    }
+
+    // POST feedback endpoint
+    axios({
+        method: 'POST',
+        url: '/',
+        data: ratings
+    })
+    .then((response) => {
+        console.log('feedback recorded:', ratings);
+    })
+    .catch((error) => {
+        console.error('error posting feedback', error);
+    });
+}
 
   return (
     
@@ -40,7 +70,7 @@ function App() {
     </Route>
 
     <Route exact path = "/review">
-      <ReviewPage />
+      <ReviewPage submitRatings={submitRatings} />
     </Route>
 
     <Route exact path = "/confirmation">
