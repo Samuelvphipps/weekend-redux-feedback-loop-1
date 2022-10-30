@@ -2,38 +2,38 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 
-function FeelingForm() {
+function SupportedForm() {
 
     const history = useHistory();
     const dispatch = useDispatch();
 
-    let [feelingRating, setFeelingRating] = useState(0);
+    let [supportedRating, setSupportedRating] = useState(0);
 
     const handleInput = (evt) => {
         evt.preventDefault();
-        setFeelingRating(event.target.value);
-        console.log('feelingrating', feelingRating);
+        setSupportedRating(event.target.value);
+        console.log('supportedRating', supportedRating);
     }
 
     const onNext = (evt) => {
         evt.preventDefault();
-        if (feelingRating == ''){
+        if (supportedRating == ''){
             alert('Please enter a number between 0 and 5!');
             return;
         }
         dispatch({
-            type: 'SET_FEELING',
-            payload: feelingRating
+            type: 'SET_SUPPORTED',
+            payload: supportedRating
         })
-        history.push('/understanding');
+        history.push('/comments');
     }
 
     return (
-        <form className='feeling' onSubmit={(evt)=>onNext(evt)}>
+        <form className='supported' onSubmit={(evt)=>onNext(evt)}>
             <h1>How are you feeling today?</h1>
-            <label htmlFor="feelingInput">Feeling?</label>
-            <input onChange={(evt)=>handleInput(evt)} id="feelingInput" 
-                type="number" min="0" max="5" value={feelingRating}
+            <label htmlFor="supportedInput">Supported?</label>
+            <input onChange={(evt)=>handleInput(evt)} id="supportedInput" 
+                type="number" min="0" max="5" value={supportedRating}
                 required
             />           
             <button type="submit">Next</button>
@@ -41,4 +41,4 @@ function FeelingForm() {
     )
 }
 
-export default FeelingForm;
+export default SupportedForm;

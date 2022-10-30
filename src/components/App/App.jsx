@@ -4,9 +4,11 @@ import {Route, HashRouter as Router, Link} from 'react-router-dom';
 import './App.css';
 import { useEffect } from 'react';
 import FeelingForm from '../FeelingForm/FeelingForm';
+import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
+import SupportedForm from '../SupportedForm/SupportedForm';
+
 
 function App() {
-
 
 
   return (
@@ -22,7 +24,14 @@ function App() {
       <FeelingForm />
     </Route>
 
-    
+    <Route exact path = "/understanding">
+      <UnderstandingForm />
+    </Route>
+
+    <Route exact path = "/supported">
+      <SupportedForm />
+    </Route>
+
     </Router>
   );
 }

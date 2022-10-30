@@ -7,9 +7,18 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'; 
 import logger from 'redux-logger';
 
-const feelingRating = (state ='0', action) => {
+const feelingRating = (state = 0, action) => {
     switch(action.type) {
         case 'SET_FEELING':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
+const understandingRating = (state = 0, action) => {
+    switch(action.type) {
+        case 'SET_UNDERSTANDING':
             return action.payload;
         default: 
             return state;
@@ -19,7 +28,8 @@ const feelingRating = (state ='0', action) => {
 const store = createStore(
     combineReducers({
     feelingRating,
-
+    understandingRating,
+    
     }),
     applyMiddleware(logger)
 );
