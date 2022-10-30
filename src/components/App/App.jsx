@@ -5,7 +5,6 @@ import './App.css';
 import { useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-
 import FeelingForm from '../FeelingForm/FeelingForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportedForm from '../SupportedForm/SupportedForm';
@@ -21,7 +20,7 @@ function App() {
   const commentsRating = useSelector((store) => store.commentsRating);
 
   const submitRatings = () => {
-    //evt.preventDefault();
+
     // create object to send to database
     const ratings = {
         feelingRating: feelingRating,

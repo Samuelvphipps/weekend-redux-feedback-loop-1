@@ -21,7 +21,7 @@ function UnderstandingForm() {
     const onNext = (evt) => {
         evt.preventDefault();
         if (understandingRating == ''){
-            alert('Please enter a number between 0 and 5!');
+            alert('Please enter a number between 1 and 5!');
             return;
         }
         dispatch({
@@ -31,7 +31,14 @@ function UnderstandingForm() {
         history.push('/supported');
     }
 
+    // go to previous page
+    const goBack = (evt) => {
+        evt.preventDefault();
+        history.push('/');
+    }
+
     return (
+        <>
         <form className='understanding' onSubmit={(evt)=>onNext(evt)}>
             <h1>How well are you understanding the content? </h1>
             <label htmlFor="understandingInput">Understanding?</label>
@@ -41,6 +48,10 @@ function UnderstandingForm() {
             />           
             <button className='nextBtn' type="submit">Next</button>
         </form>
+        <button className='backBtn' type="button" onClick={(evt)=>goBack(evt)}>
+            Back
+        </button>
+        </>
     )
 }
 

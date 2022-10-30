@@ -7,7 +7,7 @@ function CommentsForm() {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    let [commentsRating, setCommentsRating] = useState(0);
+    let [commentsRating, setCommentsRating] = useState('');
 
     const handleInput = (evt) => {
         evt.preventDefault();
@@ -18,7 +18,7 @@ function CommentsForm() {
     const onNext = (evt) => {
         evt.preventDefault();
         if (commentsRating == ''){
-            alert('Please enter a number between 0 and 5!');
+            alert('Please enter a comment!');
             return;
         }
         dispatch({
@@ -28,7 +28,14 @@ function CommentsForm() {
         history.push('/review');
     }
 
+    // go to previous page
+    const goBack = (evt) => {
+        evt.preventDefault();
+        history.push('/supported');
+    }
+
     return (
+        <>
         <form className='comments' onSubmit={(evt)=>onNext(evt)}>
             <h1>Any comments you want to leave?</h1>
             <label htmlFor="commentsInput">Comments</label>
@@ -38,7 +45,11 @@ function CommentsForm() {
             />           
             <button className='nextBtn' type="submit">Next</button>
         </form>
-    )
+        <button className='backBtn' type="button" onClick={(evt)=>goBack(evt)}>
+            Back
+        </button>
+        </>
+    );
 }
 
 export default CommentsForm;
