@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import {useDispatch} from 'react-redux';
+import TextField from '@mui/material/TextField';
+import Button from "@mui/material/Button";
 
 function SupportedForm() {
 
@@ -37,17 +39,24 @@ function SupportedForm() {
     return (
         <>
         <form className='supported' onSubmit={(evt)=>onNext(evt)}>
-            <h1>How well are you being supported?</h1>
-            <label htmlFor="supportedInput">Supported?</label>
-            <input onChange={(evt)=>handleInput(evt)} id="supportedInput" 
-                type="number" min="0" max="5" value={supportedRating}
-                required
-            />           
-            <button className='nextBtn' type="submit">Next</button>
+            <h1>How well are you being supported?</h1>         
+            <TextField
+            required
+            id="supportedInput"
+            label="Supported?"
+            variant="standard"
+            type="number" min="0" max="5"
+            onChange={(evt)=>handleInput(evt)}
+            value={supportedRating}
+            />     
+            <Button type="submit" variant="contained">
+                Next
+            </Button>
         </form>
-        <button className='backBtn' type="button" onClick={(evt)=>goBack(evt)}>
-            Back
-        </button>
+        <Button type="button" onClick={(evt)=>goBack(evt)} 
+                variant="outlined" color="secondary">
+                Back
+        </Button>
         </>
     );
 }

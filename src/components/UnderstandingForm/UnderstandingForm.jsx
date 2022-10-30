@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import {useDispatch} from 'react-redux';
-import {Route, HashRouter as Router, Link} from 'react-router-dom';
-
+import TextField from '@mui/material/TextField';
+import Button from "@mui/material/Button";
 
 function UnderstandingForm() {
 
@@ -41,16 +40,23 @@ function UnderstandingForm() {
         <>
         <form className='understanding' onSubmit={(evt)=>onNext(evt)}>
             <h1>How well are you understanding the content? </h1>
-            <label htmlFor="understandingInput">Understanding?</label>
-            <input onChange={(evt)=>handleInput(evt)} id="understandingInput" 
-                type="number" min="0" max="5" value={understandingRating}
-                required
-            />           
-            <button className='nextBtn' type="submit">Next</button>
+            <TextField
+            required
+            id="understandingInput"
+            label="Understanding?"
+            variant="standard"
+            type="number" min="0" max="5"
+            onChange={(evt)=>handleInput(evt)}
+            value={understandingRating}
+            />     
+            <Button type="submit" variant="contained">
+                Next
+            </Button>
         </form>
-        <button className='backBtn' type="button" onClick={(evt)=>goBack(evt)}>
-            Back
-        </button>
+        <Button type="button" onClick={(evt)=>goBack(evt)} 
+                variant="outlined" color="secondary">
+                Back
+        </Button>
         </>
     )
 }
