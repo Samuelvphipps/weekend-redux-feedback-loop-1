@@ -30,7 +30,7 @@ function SupportedForm() {
 
     return (
         <form className='supported' onSubmit={(evt)=>onNext(evt)}>
-            <h1>How are you feeling today?</h1>
+            <h1>How well are you being supported?</h1>
             <label htmlFor="supportedInput">Supported?</label>
             <input onChange={(evt)=>handleInput(evt)} id="supportedInput" 
                 type="number" min="0" max="5" value={supportedRating}

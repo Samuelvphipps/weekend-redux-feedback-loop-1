@@ -25,11 +25,30 @@ const understandingRating = (state = 0, action) => {
     }
 }
 
+const supportedRating = (state = 0, action) => {
+    switch(action.type) {
+        case 'SET_SUPPORTED':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
+const commentsRating = (state = '', action) => {
+    switch(action.type) {
+        case 'SET_COMMENTS':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
 const store = createStore(
     combineReducers({
     feelingRating,
     understandingRating,
-    
+    supportedRating,
+    commentsRating
     }),
     applyMiddleware(logger)
 );

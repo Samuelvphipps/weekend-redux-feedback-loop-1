@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import FeelingForm from '../FeelingForm/FeelingForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportedForm from '../SupportedForm/SupportedForm';
+import CommentsForm from '../CommentsForm/ComentsForm';
 
 
 function App() {
@@ -30,6 +31,10 @@ function App() {
 
     <Route exact path = "/supported">
       <SupportedForm />
+    </Route>
+
+    <Route exact path = "/comments">
+      <CommentsForm />
     </Route>
 
     </Router>
