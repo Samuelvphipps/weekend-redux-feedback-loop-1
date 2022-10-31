@@ -19,7 +19,7 @@ function SupportedForm() {
 
     const onNext = (evt) => {
         evt.preventDefault();
-        if (supportedRating == ''){
+        if (supportedRating == ''|| supportedRating < 1 || supportedRating > 5){
             alert('Please enter a number between 1 and 5!');
             return;
         }

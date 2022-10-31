@@ -19,7 +19,8 @@ function UnderstandingForm() {
 
     const onNext = (evt) => {
         evt.preventDefault();
-        if (understandingRating == ''){
+        if (understandingRating == '' || understandingRating < 1 || understandingRating > 5
+        ){
             alert('Please enter a number between 1 and 5!');
             return;
         }

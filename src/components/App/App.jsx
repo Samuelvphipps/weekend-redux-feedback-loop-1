@@ -32,7 +32,7 @@ function App() {
     // POST feedback endpoint
     axios({
         method: 'POST',
-        url: '/',
+        url: '/submitratings',
         data: ratings
     })
     .then((response) => {
@@ -51,7 +51,7 @@ function App() {
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
-    </div>
+    
     <Route exact path = "/">
       <FeelingForm />
     </Route>
@@ -75,7 +75,7 @@ function App() {
     <Route exact path = "/confirmation">
       <ConfirmationPage />
     </Route>
-
+    </div>
     </Router>
   );
 }

@@ -19,7 +19,7 @@ function FeelingForm() {
 
     const onNext = (evt) => {
         evt.preventDefault();
-        if (feelingRating == ''){
+        if (feelingRating == '' || feelingRating < 1 || feelingRating > 5){
             alert('Please enter a number between 1 and 5!');
             return;
         }

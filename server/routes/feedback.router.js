@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-router.post('/', (req, res) => {
+router.post('/submitratings', (req, res) => {
     console.log('in POST request');
     const sqlText = `
         INSERT INTO feedback ("feeling", "understanding", 
